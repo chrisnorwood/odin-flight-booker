@@ -1,0 +1,18 @@
+.row.centered
+  h3 Book your flight
+  = form_for @booking do |f|
+      = render 'shared/error_messages', object: f.object
+      = f.hidden_field :flight_id
+      = label_tag 'Origin'
+      = text_field_tag 'origin', @flight.from_airport.code, disabled: true
+      = label_tag 'Destination'
+      = text_field_tag 'destination', @flight.to_airport.code, disabled: true
+      = label_tag 'Date & Time'
+      = text_field_tag 'datetime', @flight.datetime, disabled: true
+      - count = 1
+      = f.fields_for :passengers do |ff|
+        = ff.label "#{count.ordinalize} passenger:"
+        = ff.text_field :name, placeholder: "Name"
+        = ff.text_field :email, placeholder: "Email"
+        - count += 1
+      = f.submit "Book now", class: 'button expanded'

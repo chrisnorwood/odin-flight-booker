@@ -36,7 +36,7 @@
              td = flight.to_airport.code
              td = flight.datetime
              td
-              = form_for(:booking, url: root_url) do |f|
+              = form_for(:booking, url: new_booking_url) do |f|
                 = f.hidden_field(:flight_id, value: flight.id) 
                 = f.hidden_field(:passengers, value: params[:passengers].to_i)
                 = f.submit "Book", class: 'button expanded small'

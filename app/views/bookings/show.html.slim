@@ -1,0 +1,16 @@
+h3 Booking Details
+h4 Flight ##{@flight.id} from 
+  <strong>#{@flight.from_airport.code}</strong> to 
+  <strong>#{@flight.to_airport.code}</strong>
+p: em Flying on #{@flight.datetime}
+h5 Passenger Details:
+table
+  thead
+    tr
+      th Name
+      th Email
+  tbody
+    - @passengers.each do |passenger|
+      tr 
+        td = passenger.name
+        td = passenger.email
