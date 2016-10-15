@@ -1,10 +1,10 @@
 .row.centered
   h3 Search for a flight!
   = form_tag(flights_path, method: :get) do
-    = label_tag :from_airport, "From:"
+    = label_tag :from_airport, "Origin:"
     = select_tag(:from_airport, \
                  options_from_collection_for_select(@airports, :id, :code, params[:from_airport]))
-    = label_tag :to_airport, "To:"
+    = label_tag :to_airport, "Destination:"
     = select_tag(:to_airport, \
                  options_from_collection_for_select(@airports, :id, :code, params[:to_airport]))
     = label_tag :date, "Date:"

@@ -12,7 +12,7 @@
       - count = 1
       = f.fields_for :passengers do |ff|
         = ff.label "#{count.ordinalize} passenger:"
-        = ff.text_field :name, placeholder: "Name"
-        = ff.text_field :email, placeholder: "Email"
+        = ff.text_field :name, placeholder: "Name", required: true
+        = ff.email_field :email, placeholder: "Email", required: true
         - count += 1
       = f.submit "Book now", class: 'button expanded'

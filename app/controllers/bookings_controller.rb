@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
     @flight  = Flight.find(posted_params[:flight_id])
     @booking = Booking.new(posted_params)
     if @booking.save
+      flash[:success] = "Booking created."
       redirect_to @booking
     else
       render :new

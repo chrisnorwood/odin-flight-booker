@@ -4,7 +4,11 @@ class FlightsController < ApplicationController
     @dates    = Flight.order('datetime').map(&:formatted_date).uniq
 
     unless search_params.empty?
-      @flights = Flight.search(search_params)
+      if search_params[:from_airport] == search_params[:to_airport]
+        flash.now[:alert] = "Origin and destination airports cannot be the same."
+      else
+        @flights = Flight.search(search_params)
+      end
     end
   end
 
