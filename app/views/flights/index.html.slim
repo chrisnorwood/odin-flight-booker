@@ -12,7 +12,7 @@
                  options_for_select(@dates, params[:date]))
     = label_tag :passengers, "Number of Passengers:"
     = select_tag(:passengers, options_for_select((1..4).to_a, params[:passengers]))
-    = submit_tag("Search", class: 'button expand large')
+    = submit_tag("Search", class: 'button expanded large')
 
 .row.centered
   - unless @flights.nil?
@@ -35,8 +35,8 @@
              td = flight.from_airport.code
              td = flight.to_airport.code
              td = flight.datetime
-             td style="vertical-align: middle;"
+             td
               = form_for(:booking, url: root_url) do |f|
                 = f.hidden_field(:flight_id, value: flight.id) 
                 = f.hidden_field(:passengers, value: params[:passengers].to_i)
-                = f.submit "Book", class: 'button expand small'
+                = f.submit "Book", class: 'button expanded small'
