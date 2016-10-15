@@ -6,4 +6,12 @@ class Flight < ApplicationRecord
   validates :to_airport_id,   presence: true
   validates :datetime,        presence: true
   validates :duration,        presence: true
+
+  def formatted_date
+    datetime.strftime("%m/%d/%Y")
+  end
+
+  def self.select_dates
+    self.pluck("distinct date(datetime)")
+  end
 end

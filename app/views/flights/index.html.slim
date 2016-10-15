@@ -1,0 +1,14 @@
+h1 Flight Booker
+= form_tag(flights_path, method: :get) do
+  = label_tag :from_airport, "From:"
+  = select_tag(:from_airport, \
+               options_from_collection_for_select(@airports, :id, :code))
+  = label_tag :to_airport, "To:"
+  = select_tag(:to_airport, \
+               options_from_collection_for_select(@airports, :id, :code))
+  = label_tag :date, "Date:"
+  = select_tag(:date, \
+               options_for_select(@dates))
+  = label_tag :passengers, "Number of Passengers:"
+  = select_tag(:passengers, options_for_select((1..4).to_a))
+  = submit_tag("Search")
