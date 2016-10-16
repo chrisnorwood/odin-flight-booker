@@ -62,7 +62,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
     :addresses      => 'smtp.sendgrid.net',
-    :port           => '465',
+    :port           => 587,
     :authentication => :plain,
     :user_name      => Figaro.env.sendgrid_username,
     :password       => Figaro.env.sendgrid_password,
