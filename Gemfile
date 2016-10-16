@@ -16,12 +16,15 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'figaro'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platform: :mri
 end
 
 group :development do
+  gem 'letter_opener'
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
   gem 'spring'

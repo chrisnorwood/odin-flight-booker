@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    meta charset="utf-8" content="text/html"
+  body
+    h1 Thanks for the booking #{@passenger.name}.
+    p
+      | You are scheduled to fly from #{@flight.from_airport.code} to #{@flight.to_airport.code}
+      | on #{@flight.datetime}
+    
+    h2 Your booking is with
+    - @booking.passengers.each do |passenger|
+      p = passenger.name
+    p View your booking here: #{@url}
+    p Have a nice trip!
+

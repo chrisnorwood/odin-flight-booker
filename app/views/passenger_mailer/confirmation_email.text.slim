@@ -1,0 +1,11 @@
+| Thanks for the booking #{@passenger.name}.
+| ============================================
+| You are scheduled to fly from #{@flight.from_airport.code} to #{@flight.to_airport.code}
+| on #{@flight.datetime}
+| ============================================
+| Your booking is with
+- @booking.passengers.each do |passenger|
+  = passenger.name
+| ============================================
+| View your booking here: #{@url}
+| Have a nice trip!
